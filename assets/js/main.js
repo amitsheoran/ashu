@@ -1,4 +1,4 @@
-/* Dr. Ashutosh Gupta — Portfolio interactions */
+/* Dr. Ashutosh Gupta - Portfolio interactions */
 (function () {
   "use strict";
 
@@ -116,17 +116,26 @@
     });
   }
 
-  /* ---- Contact form (front-end only demo) ---- */
+  /* ---- Contact form -> WhatsApp ---- */
   var form = document.getElementById("contact-form");
   if (form) {
+    var WA_NUMBER = "919451138002";
+    function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; }
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      var name = val("name"), email = val("email"), subject = val("subject"), msg = val("msg");
+      var text = "Hello Dr. Ashutosh Gupta,%0A%0A";
+      text += "Name: " + encodeURIComponent(name) + "%0A";
+      if (email) text += "Email: " + encodeURIComponent(email) + "%0A";
+      if (subject) text += "Subject: " + encodeURIComponent(subject) + "%0A";
+      text += "%0A" + encodeURIComponent(msg);
+      var url = "https://wa.me/" + WA_NUMBER + "?text=" + text;
       var note = document.getElementById("form-note");
       if (note) {
-        note.textContent = "Thank you — your message has been noted. Dr. Gupta will respond via email shortly.";
+        note.textContent = "Opening WhatsApp to send your message...";
         note.style.color = "var(--lime)";
       }
-      form.reset();
+      window.open(url, "_blank");
     });
   }
 
