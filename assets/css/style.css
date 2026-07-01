@@ -379,3 +379,56 @@ footer small { color: var(--text-faint); }
   0%, 100% { box-shadow: 0 12px 30px -8px rgba(37,211,102,.7), 0 0 0 0 rgba(37,211,102,.45); }
   50% { box-shadow: 0 12px 30px -8px rgba(37,211,102,.7), 0 0 0 14px rgba(37,211,102,0); }
 }
+
+/* ---------- Research identifier buttons ---------- */
+.id-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.id-btn {
+  display: inline-flex; align-items: center; gap: 9px; padding: 11px 18px; border-radius: 12px;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text); text-decoration: none;
+  font-size: .92rem; font-weight: 500; transition: .28s; min-height: 44px;
+}
+.id-btn:hover { background: var(--surface-2); border-color: rgba(34,224,255,.5); transform: translateY(-2px); }
+.id-btn i { font-size: 18px; font-style: normal; }
+
+/* ---------- Membership grid ---------- */
+.mem-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+.mem { display: flex; gap: 12px; align-items: center; padding: 16px 18px; }
+.mem .badge { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: var(--grad-soft); border: 1px solid var(--border); flex-shrink: 0; font-size: 18px; }
+.mem b { font-size: .95rem; font-weight: 600; line-height: 1.25; }
+.mem small { display: block; font-size: .78rem; color: var(--text-faint); margin-top: 2px; }
+
+/* ---------- Group / people cards ---------- */
+.person { padding: 24px; text-align: center; }
+.person .av { width: 66px; height: 66px; border-radius: 50%; margin: 0 auto 14px; display: grid; place-items: center; font-size: 1.5rem; font-weight: 700; background: var(--grad); color: #03040c; }
+.person h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.person p { color: var(--text-dim); font-size: .88rem; }
+
+/* ---------- Accordion (Student's Corner resources) ---------- */
+.acc { margin-bottom: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--surface); overflow: hidden; }
+.acc > summary {
+  cursor: pointer; padding: 20px 24px; font-weight: 600; font-size: 1.05rem; list-style: none;
+  display: flex; align-items: center; gap: 12px; transition: background .25s;
+}
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary .lvl { margin-right: auto; }
+.acc > summary .cnt { font-family: var(--mono); font-size: 11px; color: var(--text-faint); border: 1px solid var(--border); padding: 3px 9px; border-radius: 999px; }
+.acc > summary::after { content: "+"; font-size: 1.5rem; color: var(--cyan); font-weight: 400; transition: transform .3s; line-height: 1; }
+.acc[open] > summary::after { transform: rotate(45deg); }
+.acc > summary:hover { background: var(--surface-2); }
+.acc .acc-body { padding: 2px 16px 18px; }
+.acc .grp-label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--cyan); margin: 14px 8px 6px; }
+.res-list { display: grid; gap: 2px; }
+.res-list a {
+  display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 10px;
+  color: var(--text-dim); text-decoration: none; font-size: .93rem; transition: .2s; border: 1px solid transparent; min-height: 44px;
+}
+.res-list a:hover { color: var(--text); background: var(--surface-2); border-color: var(--border); }
+.res-list a .ri { flex-shrink: 0; }
+.res-list a .tag { margin-left: auto; font-family: var(--mono); font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--text-faint); border: 1px solid var(--border); padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+
+@media (max-width: 620px) {
+  .mem-grid { grid-template-columns: 1fr; }
+  .acc > summary { padding: 16px 18px; font-size: .98rem; }
+  .acc .acc-body { padding: 2px 10px 16px; }
+  .res-list a { font-size: .9rem; }
+}
